@@ -11,7 +11,7 @@ export const App = () => {
     <Wrapper>
       <nav>
         <StyledLink to="/">Home</StyledLink>
-        <StyledLink to="/about">Movies</StyledLink>
+        <StyledLink to="/movies">Movies</StyledLink>
       </nav>
 
       <Routes>
