@@ -3,7 +3,10 @@
 const Movies = () => {
     return (
         <div>
-            movies_page
+            <main>
+                {/* <MoviesList /> */}
+                <h1>movies</h1>
+            </main>
         </div>
     )
 }
