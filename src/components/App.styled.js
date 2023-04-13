@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-export const Body = styled.body`
-    height: 100vh;
+export const Wrapper = styled.div`
+    height: 100%;
     // display: flex;
     // justify-content: center;
     // align-items: center;

@@ -3,14 +3,14 @@ import Movies from "pages/Movies";
 import Home from "pages/Home";
 import MovieDetails from "pages/MovieDetails";
 // import NotFound from "pages/NotFound";
-import { Body, StyledLink, Header } from "./App.styled";
+import { Wrapper, StyledLink, Header } from "./App.styled";
 import Cast from "./Cast/Cast";
 import Reviews from "./Reviews/Reviews";
 
 
 export const App = () => {
   return (
-    <Body>
+    <Wrapper>
         <Header>
           <nav>
             <StyledLink to="/">Home</StyledLink>
@@ -28,6 +28,6 @@ export const App = () => {
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
 
-    </Body>
+    </Wrapper>
   );
 };
