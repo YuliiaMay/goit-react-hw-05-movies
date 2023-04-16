@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const Container = styled.div`
     display: flex;
     align-items: center;
     justifyContent: center;
-    // background-color: #fff;
-    box-shadow: none;
-    // border-radius: 3px;
     overflow: hidden;
-    border: 2px solid #EB8382;
+`;
+
+export const Form = styled.form`
+    padding: 0;
+    display: flex;
+
 
     &:hover,
     &:focus,
@@ -16,10 +18,11 @@ export const Wrapper = styled.div`
         border: 3px solid #EB8382;
         box-shadow: 4px 2px 1px 1px #EAAC8B;
     }
-`;
+`
 
 export const SearchInput = styled.input`
     width: 400px;
+    margin-top: 0; 
     height: 30px;
     font-size: 24px;
     color: #446381;

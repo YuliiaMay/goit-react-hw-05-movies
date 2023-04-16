@@ -6,66 +6,87 @@ import { fetchMoviesByQuery } from "services/movies-api";
 import { useState, useEffect } from "react";
 // import FoundMoviesList from "components/FoundMoviesList/FoundMoviesList";
 import Gallery from "components/Gallery/Gallery";
+import { toast } from 'react-toastify';
 
 
-const Status = {
-    IDLE: 'idle',
-    PENDING: 'pending',
-    RESOLVED: 'resolved',
-    REJECTED: 'rejected'
-}
+// const Status = {
+//     IDLE: 'idle',
+//     PENDING: 'pending',
+//     RESOLVED: 'resolved',
+//     REJECTED: 'rejected'
+// }
 
 
 const Movies = () => {
     // const movies = fetchMoviesByQuery();
     // console.log(movies);
+    // const [searchQuery, setSearchQuery] = useState('');
     const [movies, setMovies] = useState([]);
-    const [status, setStatus] = useState(Status.IDLE);
     const [searchParams, setSearchParams] = useSearchParams();
-    const query = searchParams.get("name") ?? "";
-    // const [query, setQuery] = useState('');
-    // const [page, setPage] = useState('');
+    const title = (searchParams.get("title") ?? "").trim();
+    
+
+
 
     useEffect(() => {
-        if (query === "") return;
+        if (title === '') return;
 
-        setStatus(Status.PENDING);
+        setMovies([]);
 
-    }, [query])
+        async function getMovies(title) {
+            try {
+                const data = await fetchMoviesByQuery(title);
+                const foundMovies = data.results;
+                setMovies(foundMovies);
+                // return foundMovies;
+            } catch (error) {
+                console.log(error);
+                toast.error('No results found', { duration: 3000 });
+            }
+        }
 
-    const visibleMovies = movies.filter((movie) =>
-        movies.name.toLowerCase().includes(query.toLowerCase())
-    );
+        getMovies(title);
+            
+        // if (searchQuery.trim() !== '') {
+        //     setSearchParams({ query: searchQuery.trim() });
+        // }
+    }, [title])
 
-    const updateQueryString = (name) => {
-        const nextParams = name !== "" ? { name } : {};
-        setSearchParams(nextParams);
-    };
-    // handelChange = ({target: {value}}) => {
-    //     console.log(value);
-    // }
 
-    // if (status === Status.IDLE) {
-    //     return (<>Let`s search something</>);
-    // }
+
+
+    // const visibleMovies = movies.filter((movie) =>
+    //     movies.name.toLowerCase().includes(query.toLowerCase())
+    // );
+
+    // const updateQueryString = (name) => {
+    //     const nextParams = name !== "" ? { name } : {};
+    //     setSearchParams(nextParams);
+    // };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const form = e.currentTarget;
+        const searchQuery = form.elements.title.value;
+        console.log(searchQuery);
+        setSearchParams({ title: searchQuery });
+        form.reset();
+    }
+
+
+    const reset = () => {
+        setSearchParams({ title: '' });
+    }
+
 
 
 
     return (
         <main>
             <SearchForm
-                value={query}
-                onChange={updateQueryString}
+                onSubmit={handleSubmit}
             />
             <Gallery movies={movies}/>
-            {/* <ul>
-                <li>
-                    <Link to="cast">Cast</Link>
-                </li>
-                <li>
-                    <Link to="reviews">Reviews</Link>
-                </li>
-            </ul> */}
         </main>
     )
 }
