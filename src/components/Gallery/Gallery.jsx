@@ -1,10 +1,8 @@
-import { Gallery } from "./TrandingGallary.styled"
 import MovieCard from "components/MovieCard/MovieCard";
 
-
-const TrandingGallary = ({movies}) => {
+const Gallery = ({ movies }) => {
     return (
-        <Gallery>
+        <ul> 
             {
                 movies.map(({id, original_language, title, vote_average, backdrop_path}) => 
                     <MovieCard
@@ -16,8 +14,8 @@ const TrandingGallary = ({movies}) => {
                     />
                 )
             }
-        </Gallery>
+        </ul>
     )
 };
 
-export default TrandingGallary;
+export default Gallery;

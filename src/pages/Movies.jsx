@@ -4,6 +4,9 @@ import SearchForm from "components/SearchForm/SearchForm";
 // import { useState } from "react";
 import { fetchMoviesByQuery } from "services/movies-api";
 import { useState, useEffect } from "react";
+// import FoundMoviesList from "components/FoundMoviesList/FoundMoviesList";
+import Gallery from "components/Gallery/Gallery";
+
 
 const Status = {
     IDLE: 'idle',
@@ -54,10 +57,7 @@ const Movies = () => {
                 value={query}
                 onChange={updateQueryString}
             />
-            <MoviesList
-                movies={visibleMovies}
-            />
-
+            <Gallery movies={movies}/>
             {/* <ul>
                 <li>
                     <Link to="cast">Cast</Link>
