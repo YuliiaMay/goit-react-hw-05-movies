@@ -1,14 +1,9 @@
-import { useState } from "react";
-// import { useSearchParams } from "react-router-dom";
 import { FcSearch } from "react-icons/fc";
 import { Container, Form, SearchInput, SearchFormButton } from "./SearchForm.styled";
 // import { toast } from 'react-toastify';
 
 
 const SearchForm = ({onSubmit}) => {
-    // const [query, setQuery] = useState('');
-
-
     //     if (query.trim() === '') {
     //         toast('Please enter a search query', {
     //             position: "top-center",
