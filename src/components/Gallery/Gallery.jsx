@@ -1,6 +1,6 @@
 import MovieCard from "components/MovieCard/MovieCard";
 import { List } from "./Gallery.styled";
-import { Link } from "react-router-dom";
+
 
 
 const Gallery = ({ movies }) => {
