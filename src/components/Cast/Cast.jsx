@@ -32,7 +32,6 @@ const Cast = () => {
                                 <img src={imgPath} alt={name} />
                                 <p>Player name: {name}</p>
                                 <p>Character: {character}</p>
-                                
                             </li>
                         )
                     })

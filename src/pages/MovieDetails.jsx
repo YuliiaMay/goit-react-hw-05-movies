@@ -24,8 +24,6 @@ const MovieDetails = () => {
 
     }, [movieId]);
 
-    console.log(movie);
-
     return (
         
             movieId && (
