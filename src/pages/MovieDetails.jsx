@@ -53,7 +53,7 @@ const MovieDetails = () => {
                         <h3>Additional information</h3>
                         <ul>
                             <li><Link to="cast">Cast</Link></li>
-                            <li><Link to="review">Review</Link></li>
+                            <li><Link to="reviews">Review</Link></li>
                         </ul>
                         <Outlet/>
                     </div>
