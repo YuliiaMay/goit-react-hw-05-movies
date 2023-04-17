@@ -2,14 +2,12 @@ import { useState } from "react";
 // import { useSearchParams } from "react-router-dom";
 import { FcSearch } from "react-icons/fc";
 import { Container, Form, SearchInput, SearchFormButton } from "./SearchForm.styled";
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 
 
 const SearchForm = ({onSubmit}) => {
-    const [query, setQuery] = useState('');
+    // const [query, setQuery] = useState('');
 
-    // handleSubmit = (e) => {
-    //     e.preventDefault();
 
     //     if (query.trim() === '') {
     //         toast('Please enter a search query', {
@@ -23,9 +21,6 @@ const SearchForm = ({onSubmit}) => {
     //             theme: "light",
     //         });
 
-    //         return;
-    //     }
-    // }
 
 
     return (
@@ -34,7 +29,6 @@ const SearchForm = ({onSubmit}) => {
                 <SearchInput
                     type="text"
                     name="title"
-                    // onChange={(e) => onChange(e.target.value)}
                 />
                 <SearchFormButton type="submit">
                     <FcSearch size={32}/>

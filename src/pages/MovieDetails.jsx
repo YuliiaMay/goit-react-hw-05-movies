@@ -30,7 +30,7 @@ const MovieDetails = () => {
         
             movieId && (
                 <div>
-                    <a href="">Go back</a>
+                    {/* <a href="">Go back</a> */}
                     <div>
                         <img src="" alt="" />
                         <div>

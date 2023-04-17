@@ -54,13 +54,6 @@ const Movies = () => {
     }
 
 
-    const reset = () => {
-        setSearchParams({ title: '' });
-    }
-
-
-
-
     return (
         <main>
             <SearchForm
