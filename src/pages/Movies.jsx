@@ -18,9 +18,6 @@ import { toast } from 'react-toastify';
 
 
 const Movies = () => {
-    // const movies = fetchMoviesByQuery();
-    // console.log(movies);
-    // const [searchQuery, setSearchQuery] = useState('');
     const [movies, setMovies] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
     const title = (searchParams.get("title") ?? "").trim();
@@ -38,7 +35,6 @@ const Movies = () => {
                 const data = await fetchMoviesByQuery(title);
                 const foundMovies = data.results;
                 setMovies(foundMovies);
-                // return foundMovies;
             } catch (error) {
                 console.log(error);
                 toast.error('No results found', { duration: 3000 });
@@ -46,29 +42,13 @@ const Movies = () => {
         }
 
         getMovies(title);
-            
-        // if (searchQuery.trim() !== '') {
-        //     setSearchParams({ query: searchQuery.trim() });
-        // }
     }, [title])
 
 
-
-
-    // const visibleMovies = movies.filter((movie) =>
-    //     movies.name.toLowerCase().includes(query.toLowerCase())
-    // );
-
-    // const updateQueryString = (name) => {
-    //     const nextParams = name !== "" ? { name } : {};
-    //     setSearchParams(nextParams);
-    // };
     const handleSubmit = (e) => {
         e.preventDefault();
-
         const form = e.currentTarget;
         const searchQuery = form.elements.title.value;
-        console.log(searchQuery);
         setSearchParams({ title: searchQuery });
         form.reset();
     }
