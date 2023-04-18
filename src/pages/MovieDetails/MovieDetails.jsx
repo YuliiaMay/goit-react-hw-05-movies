@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link, Outlet } from "react-router-dom";
+import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 import { fetchMovieDetails } from "services/movies-api";
 import { Container, Image, MovieTitle, MovieInfo, ReleaseDate, Score, Subtitle, Overview, Genres, GenresItem, Genre, AdditionalContainer, InfoList, InfoItem, StyledNavLink} from "./MovieDetails.styled";
 
@@ -7,8 +7,8 @@ const MovieDetails = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = useState({});
     const [genres, setGenres] = useState([]);
+    const location = useLocation();
 
-    
 
     useEffect(() => {
         async function getMovie(movieId) {
@@ -17,7 +17,7 @@ const MovieDetails = () => {
             setGenres(movie.genres)
         }
         getMovie(movieId);
-    }, [movie, movieId]);
+    }, [movieId]);
 
     
 
@@ -25,7 +25,7 @@ const MovieDetails = () => {
         
             movieId && (
                 <div>
-                    <Link to='movies'>Go back</Link>
+                    <Link to="movies/${movieId}">Go back</Link>
                     <Container>
                         <Image src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.original_title} />
                         <MovieInfo>
@@ -42,8 +42,8 @@ const MovieDetails = () => {
                                 <Subtitle>Genres</Subtitle>
                                 <Genres>
                                     {
-                                        genres.map(({name}) =>
-                                            <GenresItem>
+                                        genres.map(({id, name}) =>
+                                            <GenresItem key={id}>
                                                 <Genre>{name}</Genre>
                                             </GenresItem>
                                         )

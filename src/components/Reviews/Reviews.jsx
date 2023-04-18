@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchMovieReviews } from "services/movies-api";
+import { ReviewsContainer, ReviewsErrMessage, Review, Content, Author, Date } from "./Reviews.styled";
 
 
 
@@ -18,33 +19,31 @@ const Reviews = () => {
 
 
     }, [movieId])
-        
+
     return (
-        <div>
-            <ul>
-                {
-                    movieReviews.map(({ author, content, updated_at }) => {
-                        const publishDate = updated_at.slice(0, 10);
+        <ReviewsContainer>
+            {
+                (movieReviews.length !== 0)
+                    ? (
+                        <ul>
+                            {
+                                movieReviews.map(({ id, author, content, updated_at }) => {
+                                    const publishDate = updated_at.slice(0, 10);
 
-                        return (
-                            (movieReviews.length > 0)
-                                ?
-                                    (<li>
-                                        <p>{content}</p>
-                                        <p>{author}</p>
-                                        <p>Published: {publishDate}</p>
-                                    </li>)
-                                    
-                                : <p>Unfortunately we have not founf reviews</p>
-                            
-                        )
-                    }
-
+                                    return (
+                                        <Review key={id}>
+                                            <Content>{content}</Content>
+                                            <Author>Author name:  {author}</Author>
+                                            <Date>Published: {publishDate}</Date>
+                                        </Review>
+                                    )
+                                })
+                            }
+                        </ul>
                     )
-                }
-            </ul>
-
-        </div>
+                    : <ReviewsErrMessage>Unfortunately we have not found reviews 😞</ReviewsErrMessage>
+            }
+        </ReviewsContainer>
     )
 };
 

@@ -14,8 +14,6 @@ const Cast = () => {
         async function getMovieCast(movieId) {
             const data = await fetchMovieCast(movieId);
             setMovieCast(data.cast)
-            // const castImg = `https://image.tmdb.org/t/p/w500${profile_path}`
-            // console.log(cast);
         }
 
         getMovieCast(movieId);
@@ -27,10 +25,10 @@ const Cast = () => {
         <CastContainer>
             <CastList>
                 {
-                    movieCast.map(({ name, character, profile_path }) => {
+                    movieCast.map(({ cast_id, name, character, profile_path }) => {
                         const imgPath = `https://image.tmdb.org/t/p/w500${profile_path}`;
                         return (
-                            <CastItem>
+                            <CastItem key={cast_id}>
                                 <Image
                                     src={
                                     profile_path

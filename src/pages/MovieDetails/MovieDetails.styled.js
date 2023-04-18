@@ -85,7 +85,6 @@ export const InfoList = styled.ul`
 
 export const InfoItem = styled.li`
     background-color: #fff;
-    
     border-radius: 20px;
     border: 1px solid #EB8382;
 `;

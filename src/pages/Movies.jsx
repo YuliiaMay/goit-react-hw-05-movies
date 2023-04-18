@@ -9,20 +9,11 @@ import Gallery from "components/Gallery/Gallery";
 import { toast } from 'react-toastify';
 
 
-// const Status = {
-//     IDLE: 'idle',
-//     PENDING: 'pending',
-//     RESOLVED: 'resolved',
-//     REJECTED: 'rejected'
-// }
-
 
 const Movies = () => {
     const [movies, setMovies] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
     const title = (searchParams.get("title") ?? "").trim();
-    
-
 
 
     useEffect(() => {
