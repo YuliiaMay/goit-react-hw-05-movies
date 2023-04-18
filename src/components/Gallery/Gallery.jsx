@@ -18,8 +18,6 @@ const Gallery = ({ movies }) => {
                         rating={vote_average}
                         release={release_date}
                     />
-                    //     <Link />
-                    // </MovieCard>
                 )
             }
         </List>

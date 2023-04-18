@@ -34,7 +34,10 @@ const Movies = () => {
             try {
                 const data = await fetchMoviesByQuery(title);
                 const foundMovies = data.results;
-                setMovies(foundMovies);
+                const sortedMoviesm = foundMovies.sort((firstMovie, secondMovie) =>
+                    secondMovie.vote_average - firstMovie.vote_average
+                )
+                setMovies(sortedMoviesm);
             } catch (error) {
                 console.log(error);
                 toast.error('No results found', { duration: 3000 });
