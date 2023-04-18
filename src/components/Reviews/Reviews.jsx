@@ -27,11 +27,16 @@ const Reviews = () => {
                         const publishDate = updated_at.slice(0, 10);
 
                         return (
-                            <li>
-                                <p>{content}</p>
-                                <p>{author}</p>
-                                <p>Published: {publishDate}</p>
-                            </li>
+                            (movieReviews.length > 0)
+                                ?
+                                    (<li>
+                                        <p>{content}</p>
+                                        <p>{author}</p>
+                                        <p>Published: {publishDate}</p>
+                                    </li>)
+                                    
+                                : <p>Unfortunately we have not founf reviews</p>
+                            
                         )
                     }
 

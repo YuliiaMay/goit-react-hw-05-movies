@@ -5,12 +5,18 @@ import { fetchMovieDetails } from "services/movies-api";
 const MovieDetails = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = useState({});
+    
+
+    
 
     useEffect(() => {
         async function getMovie(movieId) {
         const movie = await fetchMovieDetails(movieId);
         setMovie(movie);
         
+            const movieImg = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+            const releaseDate = movie.release_date.slice(0, 4);
+            // console.log(movieImg);
 
         // const {backdrop_path, genres,
         //     original_title,
@@ -24,17 +30,19 @@ const MovieDetails = () => {
 
     }, [movieId]);
 
+
+
     return (
         
             movieId && (
                 <div>
                     {/* <a href="">Go back</a> */}
                     <div>
-                        <img src="" alt="" />
+                        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.original_title} />
                         <div>
                             <h1>
                                 <span>{movie.original_title}</span>
-                                <span>   ({movie.release_date})</span>
+                                <span>   ({movie.releaseDate})</span>
                             </h1>
                         <p>User Score - {movie.vote_average}</p>
                             <div>

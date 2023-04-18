@@ -1,5 +1,5 @@
-import { Card, Image } from "./MovieCard.styled";
-import { Link, Outlet} from "react-router-dom";
+import { CardLink, Card, Image, CardMovieInfo, Title, Rating, LanguageCircle, Language } from "./MovieCard.styled";
+import { Outlet} from "react-router-dom";
 import { Suspense } from "react";
 
 const MovieCard = ({ movieId, src, title, language, rating, release }) => {
@@ -7,12 +7,17 @@ const MovieCard = ({ movieId, src, title, language, rating, release }) => {
 
     return (
         <Card>
-            <Link to={`${movieId}`}>
+            <CardLink to={`${movieId}`}>
                 <Image src={movieImg} alt={title} />
-                <p>{title}</p>
-                <span>{language}</span>
-                <span>{rating}</span>
-            </Link>
+                <CardMovieInfo>
+                    <Title>{title}</Title>
+                    <Rating>Rating: {rating}</Rating>
+                </CardMovieInfo>
+                <LanguageCircle>
+                    <Language>{language}</Language>
+                </LanguageCircle>
+                
+            </CardLink>
             <Suspense fallback={<div>Loading page...</div>}>
                 <Outlet />
             </Suspense>

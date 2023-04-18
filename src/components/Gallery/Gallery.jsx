@@ -8,11 +8,11 @@ const Gallery = ({ movies }) => {
     return (
         <List> 
             {
-                movies.map(({ id, original_language, title, vote_average, backdrop_path, release_date }) => 
+                movies.map(({ id, original_language, title, vote_average, poster_path, release_date }) => 
                     <MovieCard
                         key={id}
                         movieId={id}
-                        src={backdrop_path}
+                        src={poster_path}
                         title={title}
                         language={original_language}
                         rating={vote_average}
