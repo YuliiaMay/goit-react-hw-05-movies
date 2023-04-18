@@ -1,13 +1,10 @@
-// import { Link, Outlet } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 import SearchForm from "components/SearchForm/SearchForm";
-// import { useState } from "react";
 import { fetchMoviesByQuery } from "services/movies-api";
 import { useState, useEffect } from "react";
-// import FoundMoviesList from "components/FoundMoviesList/FoundMoviesList";
 import Gallery from "components/Gallery/Gallery";
 import { toast } from 'react-toastify';
-
+import DefaultMoviesPageImg from "components/DefaultImg/DefaultMoviesPageImg";
 
 
 const Movies = () => {
@@ -53,7 +50,12 @@ const Movies = () => {
             <SearchForm
                 onSubmit={handleSubmit}
             />
-            <Gallery movies={movies}/>
+            {
+                (movies.length === 0)
+                    ? <DefaultMoviesPageImg />
+                    : <Gallery movies={movies}/>
+            }
+            
         </main>
     )
 }

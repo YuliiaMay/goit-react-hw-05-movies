@@ -7,7 +7,7 @@ const MovieDetails = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = useState({});
     const [genres, setGenres] = useState([]);
-    const location = useLocation();
+    // const location = useLocation();
 
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const MovieDetails = () => {
         
             movieId && (
                 <div>
-                    <Link to="movies/${movieId}">Go back</Link>
+                    {/* <Link to="movies/${movieId}">Go back</Link> */}
                     <Container>
                         <Image src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.original_title} />
                         <MovieInfo>
