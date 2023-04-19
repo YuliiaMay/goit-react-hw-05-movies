@@ -21,7 +21,6 @@ const Movies = () => {
             try {
                 const data = await fetchMoviesByQuery(title);
                 const foundMovies = data.results;
-                console.log(!foundMovies);
                 
                 if (foundMovies.length === 0) {
                     onNoAnswer();
@@ -48,12 +47,14 @@ const Movies = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (title === "") {
-            onEmptyQuery();
-        }
-
         const form = e.currentTarget;
         const searchQuery = form.elements.title.value;
+ 
+        if (searchQuery === "") {
+            onEmptyQuery();
+            return;
+        }
+
         setSearchParams({ title: searchQuery });
 
         form.reset();

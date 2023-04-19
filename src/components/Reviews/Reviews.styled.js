@@ -13,7 +13,7 @@ export const Review = styled.li`
     color: #446381;
     font-size: 16px;
     border: 1px solid #826F8C;
-    padding: 8px;
+    padding: 12px;
 
     &:not(:last-child) {
         margin-bottom: 24px;

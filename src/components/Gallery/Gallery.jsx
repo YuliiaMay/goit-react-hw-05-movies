@@ -1,6 +1,6 @@
 import MovieCard from "components/MovieCard/MovieCard";
 import { List } from "./Gallery.styled";
-
+import PropTypes from 'prop-types';
 
 
 const Gallery = ({ movies }) => {
@@ -21,6 +21,20 @@ const Gallery = ({ movies }) => {
             }
         </List>
     )
+};
+
+Gallery.propTypes = {
+    movies: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            original_language: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
+            vote_average: PropTypes.number.isRequired,
+            poster_path: PropTypes.string,
+            release_date: PropTypes.string.isRequired,
+        })
+    ),
+
 };
 
 export default Gallery;

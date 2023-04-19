@@ -35,7 +35,7 @@ const Cast = () => {
                                         ? imgPath
                                         : defaultActorPhoto}
                                     alt={name}/>
-                                <Player>Player name: <br/> {name}</Player>
+                                <Player>Actor name: <br/> {name}</Player>
                                 <Character>Character: <br/> {character}</Character>
                             </CastItem>
                         )

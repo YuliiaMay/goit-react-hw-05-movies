@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { fetchTrandingMovies } from "services/movies-api";
 import Gallery from "components/Gallery/Gallery";
-import { Title } from "./Home.styled";
+import { Wrapper, Title } from "./Home.styled";
 
 
 const Home = () => {
@@ -23,10 +23,10 @@ const Home = () => {
     }, []);
 
     return (
-        <main>
+        <Wrapper>
             <Title>Tranding today</Title>
             <Gallery movies={trends} />
-        </main>
+        </Wrapper>
     )
 }
 
