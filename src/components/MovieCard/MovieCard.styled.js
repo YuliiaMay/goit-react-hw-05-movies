@@ -12,6 +12,7 @@ export const Card = styled.div`
     cursor: pointer;
     border: 3px solid #FFC5B3;
     background-color: #C37A87;
+    max-width: calc((100% - 3 * 30px) / 4);
 
     &:hover,
     &:focus {

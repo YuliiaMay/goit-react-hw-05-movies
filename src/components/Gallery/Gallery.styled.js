@@ -5,5 +5,5 @@ export const List = styled.ul`
     flex-direction: row;
     flex-wrap: wrap;
     gap: 30px;
-    width: calc((100% - 3 * 30px) / 4);
+    
 `;
