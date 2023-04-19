@@ -1,13 +1,17 @@
-import { useState, useEffect } from "react";
-import { useParams, Link, Outlet, useLocation } from "react-router-dom";
+import { useState, useEffect, useRef} from "react";
+import { useParams, Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { fetchMovieDetails } from "services/movies-api";
-import { Container, Image, MovieTitle, MovieInfo, ReleaseDate, Score, Subtitle, Overview, Genres, GenresItem, Genre, AdditionalContainer, InfoList, InfoItem, StyledNavLink} from "./MovieDetails.styled";
+import { Wrapper, Container, Image, MovieTitle, MovieInfo, ReleaseDate, Score, Subtitle, Overview, Genres, GenresItem, Genre, AdditionalContainer, InfoList, InfoItem, StyledNavLink, GoMoviesPageLink} from "./MovieDetails.styled";
+import defaulMovieImage from '../../images/default-movie.jpg';
+
+
 
 const MovieDetails = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = useState({});
     const [genres, setGenres] = useState([]);
-    // const location = useLocation();
+    const location = useLocation();
+    const backLinkHref = location.state?.from ?? "/movies";
 
 
     useEffect(() => {
@@ -24,10 +28,14 @@ const MovieDetails = () => {
     return (
         
             movieId && (
-                <div>
-                    {/* <Link to="movies/${movieId}">Go back</Link> */}
+                <Wrapper>
+                    <GoMoviesPageLink to={backLinkHref}>Go back</GoMoviesPageLink>
                     <Container>
-                        <Image src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.original_title} />
+                        <Image src={
+                            movie.poster_path
+                            ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                            : defaulMovieImage}
+                            alt={movie.original_title} />
                         <MovieInfo>
                             <MovieTitle>
                                 <span>{movie.original_title}</span>
@@ -60,7 +68,7 @@ const MovieDetails = () => {
                         </InfoList>
                         <Outlet/>
                     </AdditionalContainer>
-                </div>
+                </Wrapper>
             )
         
         

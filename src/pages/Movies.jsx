@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Gallery from "components/Gallery/Gallery";
 import { toast } from 'react-toastify';
 import DefaultMoviesPageImg from "components/DefaultImg/DefaultMoviesPageImg";
+import { Wrapper } from "./Movies.styled";
 
 
 const Movies = () => {
@@ -12,20 +13,26 @@ const Movies = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const title = (searchParams.get("title") ?? "").trim();
 
-
     useEffect(() => {
         if (title === '') return;
-
         setMovies([]);
 
         async function getMovies(title) {
             try {
                 const data = await fetchMoviesByQuery(title);
                 const foundMovies = data.results;
-                const sortedMoviesm = foundMovies.sort((firstMovie, secondMovie) =>
+                console.log(!foundMovies);
+                
+                if (foundMovies.length === 0) {
+                    onNoAnswer();
+                    return;
+                }
+
+                const sortedMovies = foundMovies.sort((firstMovie, secondMovie) =>
                     secondMovie.vote_average - firstMovie.vote_average
-                )
-                setMovies(sortedMoviesm);
+                );
+
+                setMovies(sortedMovies);
             } catch (error) {
                 console.log(error);
                 toast.error('No results found', { duration: 3000 });
@@ -33,30 +40,65 @@ const Movies = () => {
         }
 
         getMovies(title);
+
+
     }, [title])
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if (title === "") {
+            onEmptyQuery();
+        }
+
         const form = e.currentTarget;
         const searchQuery = form.elements.title.value;
         setSearchParams({ title: searchQuery });
+
         form.reset();
+    }
+
+    const onEmptyQuery = () => {
+        toast('Please enter a search query', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    };
+
+    const onNoAnswer = () => {
+        toast("Unfortunately we found nothing. Let's try something else!", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
     }
 
 
     return (
-        <main>
+        <Wrapper>
             <SearchForm
                 onSubmit={handleSubmit}
+                title={title}
             />
+
             {
                 (movies.length === 0)
                     ? <DefaultMoviesPageImg />
                     : <Gallery movies={movies}/>
             }
-            
-        </main>
+        </Wrapper>
     )
 }
 

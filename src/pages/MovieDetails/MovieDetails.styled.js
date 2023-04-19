@@ -1,14 +1,22 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const Container = styled.section`
-    max-width: 1300px;
+export const Wrapper = styled.main`
     margin: auto;
+    margin-top: 40px;
+    margin-botton: 40px;
+    width: 1250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`
+export const Container = styled.section`
     display: flex;
     flex-direction: row;
     gap: 36px;
     border: 2px solid #EB8382;
     padding: 40px;
+
 `;
 
 export const Image = styled.img`
@@ -66,15 +74,14 @@ export const Genre = styled.span`
 `;
 
 export const AdditionalContainer = styled.section`
-    max-width: 1300px;
-    margin: auto;
+    width: 1250px;
     border-bottom: 2px solid #EB8382;
-    border-left: 2px solid #EB8382;
-    border-right: 2px solid #EB8382;
-    padding: 40px;
+    // border-left: 2px solid #EB8382;
+    // border-right: 2px solid #EB8382;
+    padding-top: 40px;
+    padding-bottom: 40px;
     color: #826F8C;
     font-size: 24px;
-    
 `;
 
 export const InfoList = styled.ul`
@@ -86,17 +93,35 @@ export const InfoList = styled.ul`
 export const InfoItem = styled.li`
     background-color: #fff;
     border-radius: 20px;
-    border: 1px solid #EB8382;
+    border: 1px solid #826F8C;
+    padding: 8px;
 `;
 
 
 export const StyledNavLink = styled(NavLink)`
-    padding: 8px;
-
-    &:active {
-        background-color: #EB8382;
+    &.active {
+        color: #EB8382;
     }
 `;
+
+export const GoMoviesPageLink = styled(Link)`
+    color: #826F8C;
+    font-size: 24px;
+    margin-bottom: 32px; 
+    width: 100px;
+            border-radius: 20px;
+        border: 1px solid #EB8382;
+        background-color: transparant; 
+        padding: 4px;
+
+
+    &:hover,
+    &:focus {
+        color: #EB8382;
+        background-color: #fff; 
+    }
+
+`
 
 
 

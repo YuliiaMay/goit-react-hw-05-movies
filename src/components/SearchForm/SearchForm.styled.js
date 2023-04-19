@@ -3,22 +3,17 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: flex;
     align-items: center;
-    justifyContent: center;
+    justify-content: center;
     overflow: hidden;
+    margin-bottom: 40px; 
 `;
 
 export const Form = styled.form`
     padding: 0;
     display: flex;
-
-
-    &:hover,
-    &:focus,
-    &:active {
-        border: 3px solid #EB8382;
-        box-shadow: 4px 2px 1px 1px #EAAC8B;
-    }
-`
+    justify-content: center;
+    border: 1px solid #EB8382;
+`;
 
 export const SearchInput = styled.input`
     width: 400px;

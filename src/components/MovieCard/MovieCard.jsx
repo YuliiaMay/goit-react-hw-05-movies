@@ -8,7 +8,7 @@ const MovieCard = ({ movieId, src, title,  rating }) => {
 
     return (
         <Card>
-            <CardLink to={`${movieId}`}>
+            <CardLink to={`/movies/${movieId}`}>
                 <Image src={
                     src
                         ? movieImg

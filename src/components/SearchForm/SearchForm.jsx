@@ -1,23 +1,7 @@
 import { FcSearch } from "react-icons/fc";
 import { Container, Form, SearchInput, SearchFormButton } from "./SearchForm.styled";
-// import { toast } from 'react-toastify';
 
-
-const SearchForm = ({onSubmit}) => {
-    //     if (query.trim() === '') {
-    //         toast('Please enter a search query', {
-    //             position: "top-center",
-    //             autoClose: 5000,
-    //             hideProgressBar: false,
-    //             closeOnClick: true,
-    //             pauseOnHover: true,
-    //             draggable: true,
-    //             progress: undefined,
-    //             theme: "light",
-    //         });
-
-
-
+const SearchForm = ({ onSubmit }) => {
     return (
         <Container>
             <Form onSubmit={onSubmit}>

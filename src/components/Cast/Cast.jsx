@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchMovieCast } from "services/movies-api";
 import { CastContainer, CastList, CastItem, Image, Character, Player } from "./Cast.styled";
-import defaultActorPhoto from '../../images/no-avatar.jpg'
+import defaultActorPhoto from '../../images/no-avatar.jpg';
 
 
 const Cast = () => {
