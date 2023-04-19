@@ -4,7 +4,6 @@ import { fetchMovieReviews } from "services/movies-api";
 import { ReviewsContainer, ReviewsErrMessage, Review, Content, Author, Date } from "./Reviews.styled";
 
 
-
 const Reviews = () => {
     const { movieId } = useParams();
     const [movieReviews, setMovieReviews] = useState([]);

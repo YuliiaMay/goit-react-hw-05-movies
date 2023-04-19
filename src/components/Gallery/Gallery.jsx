@@ -4,7 +4,6 @@ import { List } from "./Gallery.styled";
 
 
 const Gallery = ({ movies }) => {
-
     return (
         <List> 
             {

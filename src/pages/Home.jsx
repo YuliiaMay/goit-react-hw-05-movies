@@ -1,8 +1,7 @@
-// import { Link, Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchTrandingMovies } from "services/movies-api";
-// import TrandingGallary from "components/TrandingGallary/TrandingGallary";
 import Gallery from "components/Gallery/Gallery";
+import { Title } from "./Home.styled";
 
 
 const Home = () => {
@@ -25,9 +24,8 @@ const Home = () => {
 
     return (
         <main>
-            <h1>Tranding today</h1>
+            <Title>Tranding today</Title>
             <Gallery movies={trends} />
-
         </main>
     )
 }
