@@ -104,7 +104,7 @@ export const StyledNavLink = styled(NavLink)`
     }
 `;
 
-export const GoMoviesPageLink = styled(Link)`
+export const GoBackLink = styled(Link)`
     color: #826F8C;
     font-size: 24px;
     margin-bottom: 32px; 

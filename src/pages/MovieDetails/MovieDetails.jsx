@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Outlet, useLocation } from "react-router-dom";
 import { fetchMovieDetails } from "services/movies-api";
-import { Wrapper, Container, Image, MovieTitle, MovieInfo, ReleaseDate, Score, Subtitle, Overview, Genres, GenresItem, Genre, AdditionalContainer, InfoList, InfoItem, StyledNavLink, GoMoviesPageLink} from "./MovieDetails.styled";
+import { Wrapper, Container, Image, MovieTitle, MovieInfo, ReleaseDate, Score, Subtitle, Overview, Genres, GenresItem, Genre, AdditionalContainer, InfoList, InfoItem, StyledNavLink, GoBackLink } from "./MovieDetails.styled";
 import defaulMovieImage from '../../images/default-movie.jpg';
 
 
@@ -28,7 +28,7 @@ const MovieDetails = () => {
         
             movieId && (
                 <Wrapper>
-                    <GoMoviesPageLink to={backLinkHref}>Go back</GoMoviesPageLink>
+                    <GoBackLink to={backLinkHref}>Go back</GoBackLink>
                     <Container>
                         <Image src={
                             movie.poster_path
