@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export const Container = styled.div`
     height: 100%;
-    font-size: 40px;
+    font-size: 32px;
     color: #010101;
     background-color: #FFE6D7;
     margin: 0 auto;
@@ -33,6 +33,5 @@ export const StyledLink = styled(NavLink)`
 
     &.active {
         color: #EB8382;
-
     }
 `;
