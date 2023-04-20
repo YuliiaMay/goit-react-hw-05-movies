@@ -1,10 +1,10 @@
-import { useSearchParams } from "react-router-dom";
-import SearchForm from "components/SearchForm/SearchForm";
-import { fetchMoviesByQuery } from "services/movies-api";
+import { useSearchParams, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Gallery from "components/Gallery/Gallery";
-import { toast } from 'react-toastify';
+import SearchForm from "components/SearchForm/SearchForm";
 import DefaultMoviesPageImg from "components/DefaultImg/DefaultMoviesPageImg";
+import Gallery from "components/Gallery/Gallery";
+import { fetchMoviesByQuery } from "services/movies-api";
+import { toast } from 'react-toastify';
 import { Wrapper } from "./Movies.styled";
 
 
@@ -49,7 +49,7 @@ const Movies = () => {
 
         const form = e.currentTarget;
         const searchQuery = form.elements.title.value;
- 
+
         if (searchQuery === "") {
             onEmptyQuery();
             return;

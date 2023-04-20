@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { fetchTrandingMovies } from "services/movies-api";
 import Gallery from "components/Gallery/Gallery";
 import { Wrapper, Title } from "./Home.styled";
 
 
+
 const Home = () => {
-    const [trends, setTrends] = useState([]);
+    const [trends, setTrends] = useState([]);    
 
     useEffect(() => {
-        async function getTrends(page) {
+        async function getTrends() {
             try {
                 const data = await fetchTrandingMovies();
                 setTrends(data.results);
@@ -25,7 +27,7 @@ const Home = () => {
     return (
         <Wrapper>
             <Title>Tranding today</Title>
-            <Gallery movies={trends} />
+            <Gallery movies={trends}  />
         </Wrapper>
     )
 }

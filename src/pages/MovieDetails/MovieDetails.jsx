@@ -13,6 +13,7 @@ const MovieDetails = () => {
     const location = useLocation();
     const backLinkHref = location.state?.from ?? "/movies";
 
+
     useEffect(() => {
         async function getMovie(movieId) {
             const movie = await fetchMovieDetails(movieId);

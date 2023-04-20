@@ -6,7 +6,7 @@ export const Container = styled.section`
 `;
 
 export const Image = styled.img`
-    width: 700px;
+    width: 600px;
     margin-left: auto;
     margin-right: auto;
 `;

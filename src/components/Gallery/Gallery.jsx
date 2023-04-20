@@ -34,7 +34,6 @@ Gallery.propTypes = {
             release_date: PropTypes.string.isRequired,
         })
     ),
-
 };
 
 export default Gallery;

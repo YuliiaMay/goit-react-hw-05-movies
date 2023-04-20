@@ -28,6 +28,7 @@ export const SearchInput = styled.input`
 
 export const SearchFormButton = styled.button`
     display: inline-block;
+    background-color: #EAAC8B;
     width: 48px;
     height: 48px;
     border: 0;
