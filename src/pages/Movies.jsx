@@ -1,4 +1,4 @@
-import { useSearchParams, useLocation } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import SearchForm from "components/SearchForm/SearchForm";
 import DefaultMoviesPageImg from "components/DefaultImg/DefaultMoviesPageImg";

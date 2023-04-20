@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.main`
     min-height: 900px;
+    padding-bottom: 60px;
 `;
 
 export const Title = styled.h1`

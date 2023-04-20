@@ -11,8 +11,7 @@ const MovieDetails = () => {
     const [movie, setMovie] = useState({});
     const [genres, setGenres] = useState([]);
     const location = useLocation();
-    const backLinkHref = location.state?.from ?? "/movies";
-
+    const backLinkHref = location.state?.from;
 
     useEffect(() => {
         async function getMovie(movieId) {
@@ -22,8 +21,6 @@ const MovieDetails = () => {
         }
         getMovie(movieId);
     }, [movieId]);
-
-    
 
     return (
         
@@ -63,7 +60,7 @@ const MovieDetails = () => {
                     <AdditionalContainer>
                         <Subtitle>Additional information</Subtitle>
                         <InfoList>
-                            <InfoItem><StyledNavLink to="cast">Cast</StyledNavLink></InfoItem>
+                            <InfoItem><StyledNavLink to="cast" >Cast</StyledNavLink></InfoItem>
                             <InfoItem><StyledNavLink to="reviews">Review</StyledNavLink></InfoItem>
                         </InfoList>
                         <Outlet/>

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { fetchTrandingMovies } from "services/movies-api";
 import Gallery from "components/Gallery/Gallery";
 import { Wrapper, Title } from "./Home.styled";
