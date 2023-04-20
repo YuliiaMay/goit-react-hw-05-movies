@@ -1,7 +1,9 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import { Container, StyledLink, Header } from "./SharedLayout.styled";
-import scrollPageDown from "helpers/Scroll";
+import Loader from "components/Loader/Loader";
+// import scrollPageDown from "helpers/Scroll";
+
 
 
 export const SharedLayout = () => {
@@ -14,7 +16,7 @@ export const SharedLayout = () => {
                 </nav>
             </Header>
 
-            <Suspense>
+            <Suspense fallback={<Loader />}>
                 <Outlet />
             </Suspense>
         </Container>
