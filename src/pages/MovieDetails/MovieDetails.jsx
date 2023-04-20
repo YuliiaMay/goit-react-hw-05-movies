@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { useParams, Outlet, useLocation } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+import { useParams, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { fetchMovieDetails } from "services/movies-api";
 import { Wrapper, Container, Image, MovieTitle, MovieInfo, ReleaseDate, Score, Subtitle, Overview, Genres, GenresItem, Genre, AdditionalContainer, InfoList, InfoItem, StyledNavLink, GoBackLink } from "./MovieDetails.styled";
 import defaulMovieImage from '../../images/default-movie.jpg';
@@ -11,7 +11,8 @@ const MovieDetails = () => {
     const [movie, setMovie] = useState({});
     const [genres, setGenres] = useState([]);
     const location = useLocation();
-    const backLinkHref = location.state?.from;
+    const backLinkHref = useRef(location.state?.from ?? '/');
+
 
     useEffect(() => {
         async function getMovie(movieId) {
@@ -26,7 +27,8 @@ const MovieDetails = () => {
         
             movieId && (
                 <Wrapper>
-                    <GoBackLink to={backLinkHref}>Go back</GoBackLink>
+                    <GoBackLink to={backLinkHref.current}>Go Back
+                    </GoBackLink>
                     <Container>
                         <Image src={
                             movie.poster_path

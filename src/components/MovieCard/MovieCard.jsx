@@ -7,6 +7,7 @@ import defaulMovieImage from '../../images/default-movie.jpg';
 const MovieCard = ({ movieId, src, title, rating }) => {
     const movieImg = `https://image.tmdb.org/t/p/w500${src}` ?? '/src/default.jpg';
     const location = useLocation();
+    const pathname = location.pathname;
 
     return (
         <Card>
