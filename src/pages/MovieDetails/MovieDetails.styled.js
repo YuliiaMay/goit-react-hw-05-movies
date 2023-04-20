@@ -9,7 +9,7 @@ export const Wrapper = styled.main`
     display: flex;
     flex-direction: column;
     justify-content: center;
-`
+`;
 export const Container = styled.section`
     display: flex;
     flex-direction: row;
@@ -91,10 +91,18 @@ export const InfoList = styled.ul`
 `;
 
 export const InfoItem = styled.li`
-    background-color: #fff;
+    background-color: #transparant;
     border-radius: 20px;
-    border: 1px solid #826F8C;
+    border: 2px solid #fff;
     padding: 8px;
+    color: #414141;
+
+    &:hover,
+    &:focus {
+        border: 1px solid #fff;
+        background-color: #EB8382;
+        color: #fff;
+    }
 `;
 
 
@@ -108,17 +116,18 @@ export const GoBackLink = styled(Link)`
     color: #826F8C;
     font-size: 24px;
     margin-bottom: 32px; 
-    width: 100px;
-            border-radius: 20px;
-        border: 1px solid #EB8382;
-        background-color: transparant; 
-        padding: 4px;
+    width: 120px;
+    text-align: center;
+    border-radius: 20px;
+    border: 2px solid #fff;
+    background-color: transparant; 
 
 
     &:hover,
     &:focus {
         color: #EB8382;
         background-color: #fff; 
+        border: 2px solid #EB8382;
     }
 
 `
