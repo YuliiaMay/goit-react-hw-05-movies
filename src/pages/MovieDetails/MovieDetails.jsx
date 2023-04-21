@@ -1,10 +1,9 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import { useParams, Outlet, useLocation } from "react-router-dom";
 import { fetchMovieDetails } from "services/movies-api";
 import { Wrapper, Container, Image, MovieTitle, MovieInfo, ReleaseDate, Score, Subtitle, Overview, Genres, GenresItem, Genre, AdditionalContainer, InfoList, InfoItem, StyledNavLink, GoBackLink } from "./MovieDetails.styled";
 import defaulMovieImage from '../../images/default-movie.jpg';
-
-
+import Loader from "components/Loader/Loader";
 
 const MovieDetails = () => {
     const { movieId } = useParams();
@@ -64,9 +63,11 @@ const MovieDetails = () => {
                         <InfoList>
                             <InfoItem><StyledNavLink to="cast" >Cast</StyledNavLink></InfoItem>
                             <InfoItem><StyledNavLink to="reviews">Review</StyledNavLink></InfoItem>
-                        </InfoList>
-                        <Outlet/>
+                    </InfoList>
                     </AdditionalContainer>
+                    <Suspense fallback={<Loader />}>
+                        <Outlet />
+                    </Suspense>
                 </Wrapper>
             )
         
